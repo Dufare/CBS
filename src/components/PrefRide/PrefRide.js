@@ -1,39 +1,8 @@
-import React,{useState} from 'react'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { Form } from 'react-router-dom';
-import { Container, Input } from 'reactstrap';
-import fromTo from "./fromTo.module.css"
-import { FaHome } from "react-icons/fa";
+import React from 'react'
 
-
-const FromTo = () => {
-  const [success, setSuccess] = useState(false);
+const PrefRide = () => {
   return (
-    <>
-    <Card className={fromTo.card}>
-    
-    <Card.Body>
-    
-     <div className='container d-flex mx-5 '>
-      
-      <div className="mx-3 col-md-5">
-     <Input className='bg-dark' type="text" placeholder='From Location'></Input>
-     </div>
-     <div className="mx-3 col-md-5">
-     <Input className='bg-dark' type="text" placeholder='Destination Location'></Input>
-     </div>
-     </div>
-     <Button className= {fromTo.marginRight14+" my-3 col-md-2 float-end"} onClick={() => setSuccess(true)} variant="success"  variant="outline-success">Next</Button>{' '}
-     
-    
-    </Card.Body> 
-    
-  </Card>
-
-  {success && <div className='conatiner'>
-    
-  <div className=" pref_ride_box container mx-5 my-5">
+    <div className=" pref_ride_box container mx-5 my-5">
     <div className="row">
         <div className="col-md-8">
             <div className="people-nearby">
@@ -81,11 +50,7 @@ const FromTo = () => {
     	</div>
 	</div>
 </div>
-    
-    </div>}
-  </>
-  
   )
 }
 
-export default FromTo
+export default PrefRide

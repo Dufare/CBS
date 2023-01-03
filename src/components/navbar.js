@@ -14,7 +14,7 @@ const Navbar = () => {
                 height={45}
                 className="rounded-circle"
               /> */}
-              <p>Home</p>
+              
             </li>
 
             <li className="nav-item active mx-2">
@@ -30,7 +30,7 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item mx-2">
-              <Link to="/update" className="nav-link">
+              <Link to="/PrefRide" className="nav-link">
                 Update
               </Link>
             </li>
