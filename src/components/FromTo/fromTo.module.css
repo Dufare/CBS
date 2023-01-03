@@ -1,0 +1,12 @@
+.card{
+    width:60rem;
+    margin-top: 10%;
+    margin-left: 5%;
+    background-color: rgba(255, 255, 255, 0.094);
+    color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.marginRight14{
+    margin-right: 67px;
+}
