@@ -1,0 +1,36 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "userName": "Jayesh",
+      "password": "test",
+      "mobile": "1234567890",
+      "address": "12 MG Road Delhi",
+      "email": "jayesh123@gmail.com"
+    },
+    {
+      "id": 2,
+      "userName": "",
+      "password": "",
+      "mobile": "",
+      "address": "",
+      "email": ""
+    },
+    {
+      "id": 3,
+      "userName": "rudraksh",
+      "password": "81033",
+      "mobile": "94253631",
+      "address": "hkfhfsks",
+      "email": "rudraksh@81033"
+    },
+    {
+      "id": 4,
+      "userName": "Jayesh Dufare",
+      "password": "81033",
+      "mobile": "7974581097",
+      "address": "Near Tank",
+      "email": "jdufare04@gmail.com"
+    }
+  ]
+}

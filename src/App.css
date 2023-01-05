@@ -20,6 +20,11 @@
   color: whitesmoke;
  
 }
+.input_box {
+  color: whitesmoke;
+  background-color: rgba(24, 24, 24, 0.233);
+}
+
 /*==================================================
 PREF RIDE CSS
 ==================================================*/
@@ -80,4 +85,14 @@ img.profile-photo-lg{ height: 80px; width: 80px; border-radius: 50%;
   to {
     transform: rotate(360deg);
   }
+}
+
+.box-prefride{
+  border-radius: 10px;
+  background-color: rgba(18, 18, 18, 0.671);
+  padding: 30px;
+  margin: 20px;
+}
+.pref-ride-text{
+  color: rgba(245, 245, 245, 0.532);
 }

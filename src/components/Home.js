@@ -7,9 +7,8 @@ import MapRide from './MapRide'
 const Home = () => {
   return (
     
-    <div className='container '> 
+    <div > 
     <MapRide/>
-    
     <FromTo/>
     </div>
   )
