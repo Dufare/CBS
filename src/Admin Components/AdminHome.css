@@ -1,0 +1,49 @@
+.side_nav{
+    background-color: #2f3030;
+    width: 22%;
+    height: 500px;
+    color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .list-group-item{
+    background-color:  #2f3030;
+    color: whitesmoke;
+    border-radius: 10px;
+    margin:10px;  
+    width: 20;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.list-group-item:hover{
+    
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    webkit-backdrop-filter: blur(0px);
+
+}
+.dash_item{
+    margin-top: 25px;
+}
+/* -------------------------USER MANAGEMENT */
+
+.user_table{
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: -40%;
+    margin-left: 22.5%;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    webkit-backdrop-filter: blur(0px);
+    
+}
+.table{
+    
+    color: aliceblue;
+    }
+
+.thread_user{
+        background-color:rgba(0, 0, 0, 0.121) ;
+
+    }

@@ -1,14 +1,15 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Form } from 'react-router-dom';
-import { Container, Input } from 'reactstrap';
+import {  Input } from 'reactstrap';
 import fromTo from "./fromTo.module.css"
 import { FaHome } from "react-icons/fa";
 
 
 const FromTo = () => {
   const [success, setSuccess] = useState(false);
+  const scollToRef = useRef();
   return (
     <>
     <Card className={fromTo.card}>
@@ -18,22 +19,22 @@ const FromTo = () => {
      <div className='container d-flex mx-5 '>
       
       <div className="mx-3 col-md-5">
-     <Input className='bg-dark' type="text" placeholder='From Location'></Input>
+      <Input className='input_box' type="email" name="email" id="exampleEmail" placeholder="Current Location" />
      </div>
      <div className="mx-3 col-md-5">
-     <Input className='bg-dark' type="text" placeholder='Destination Location'></Input>
+     <Input className='input_box' type="email" name="email" id="exampleEmail" placeholder="Destination Location" />
      </div>
      </div>
-     <Button className= {fromTo.marginRight14+" my-3 col-md-2 float-end"} onClick={() => setSuccess(true)} variant="success"  variant="outline-success">Next</Button>{' '}
+     <Button className= {fromTo.marginRight14+" my-3 col-md-2 float-end"} onClick={() => (setSuccess(true)) (scollToRef.current.scrollIntoView())} variant="outline-success">Next</Button>{' '}
      
     
     </Card.Body> 
     
   </Card>
 
-  {success && <div className='conatiner'>
-    
-  <div className=" pref_ride_box container mx-5 my-5">
+  {success && <div className='conatiner box-prefride'>
+   <div className='pref-ride-text'><h3>Recomanded For You</h3></div> 
+  <div className=" pref_ride_box container mx-5 my-5" ref={scollToRef}>
     <div className="row">
         <div className="col-md-8">
             <div className="people-nearby">
