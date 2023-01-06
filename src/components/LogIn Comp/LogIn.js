@@ -1,10 +1,44 @@
-import React from "react";
+import React,{useState} from "react";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import "./LogIn.css";
 import taxi2 from "../../assets/taxi 2.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import {signInWithEmailAndPassword} from "firebase/auth"; 
+import {auth} from "../../firebaseconfig/firebase"
+
 
 const LogIn = () => {
+  const navigate = useNavigate();
+  const [user,setUser] = useState({
+    
+    "password": "",
+    
+    "email": "",
+  })
+  
+  //error message
+  // const [errorMsg , setErrorMsg]= useState("")
+  
+
+
+  // const handleChange = (e) => {
+  //   setUser({...user,[e.target.name]:e.target.value})
+  // }
+  // const handleSubmit=()=>{
+  //   if(!user.userName || !user.password )
+  //   {
+  //     setErrorMsg("Please fill all detials to LogIn")
+  //     return;
+  //   }
+  //   setErrorMsg("");
+  //   signInWithEmailAndPassword(auth,user.email,user.password)
+  //   .then(res=>{
+  //     navigate("/Home");
+  //   }).catch((err)=>console.log("Error",err))
+  // }
+
+
+  
   return (
     <div className="Log-in-conatiner">
       <MDBContainer fluid className="p-3 my-5">
@@ -22,7 +56,9 @@ const LogIn = () => {
                       type="text"
                       className="form-control input-field"
                       id="formGroupExampleInput"
-                      placeholder="UserName"
+                      placeholder="Email"
+                      value={user.email}
+                      onChange={(e)=>handleChange(e)}
                     />
                   </div>
                   <div class="mb-1">
@@ -31,10 +67,15 @@ const LogIn = () => {
                       className="form-control my-4 input-field"
                       id="formGroupExampleInput2"
                       placeholder="Password"
+                      value={user.password}
+                      onChange={(e)=>handleChange(e)}
                     />
                   </div>
-                  <div class="mb-1">
-                    <button type="button" className="btn btn-outline-primary">
+                  <div class="mb-1 error-msg "> 
+                    <p>{errorMsg}</p>
+                  </div>
+                  <div class="mb-1 my-2">
+                    <button type="button" className="btn btn-outline-primary" onClick={handleSubmit()}>
                       Log In
                     </button>
                   </div>

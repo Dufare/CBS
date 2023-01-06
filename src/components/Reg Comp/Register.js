@@ -2,11 +2,15 @@ import React, { useEffect,useState } from "react";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import "../LogIn Comp/LogIn.css";
 import taxi2 from "../../assets/register taxi.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../Redux/Action/UserActions";
+import {createUserWithEmailAndPassword} from "firebase/auth"; 
+import {auth} from "../../firebaseconfig/firebase"
+
 
 const Register = () => {
+  const navigate = useNavigate();
   const [user,setUser] = useState({
     "id": "",
     "userName": "",
@@ -16,10 +20,29 @@ const Register = () => {
     "email": "",
   })
   const dispatch = useDispatch()
+  //error message
+  const [errorMsg , setErrorMsg]= useState("")
+  const [submitButtonDisabled , setSubmitButtonDisabled]= useState(false);
+
+
   const handleChange = (e) => {
     setUser({...user,[e.target.name]:e.target.value})
   }
   const handleSubmit=()=>{
+    if(!user.userName || !user.password || !user.mobile || !user.address || !user.email)
+    {
+      setErrorMsg("Fill All Fields")
+      return;
+    }
+    setErrorMsg("");
+    createUserWithEmailAndPassword(auth,user.email,user.password)
+    .then(res=>{
+      navigate("/LogIn")
+    }).catch((err)=>console.log("Error",err))
+
+
+
+
     setUser({
       "id": "",
       "userName": "",
@@ -98,7 +121,10 @@ const Register = () => {
                       name= "email"
                     />
                   </div>
-                  <div class="mb-1">
+                  <div class="mb-1 error-msg">
+                    <p>{errorMsg}</p>
+                  </div>
+                  <div class="mb-1 my-2">
                     <button type="button" className="btn btn-outline-primary" onClick={handleSubmit} >
                       Regiter
                     </button>
@@ -110,7 +136,7 @@ const Register = () => {
                       to="/LogIn"
                       className="cursor-pointer text-green-600 hover:text-green-800"
                     >
-                      <div class="mb-1">
+                      <div className="mb-1">
                         <a className="newacc">Already have an Account</a>
                       </div>
                     </Link>
@@ -121,7 +147,7 @@ const Register = () => {
           </MDBCol>
 
           <MDBCol col="10" md="6">
-            <img src={taxi2} class="img-fluid" alt="Phone image" />
+            <img src={taxi2} className="img-fluid" alt="Phone image" />
           </MDBCol>
         </MDBRow>
       </MDBContainer>

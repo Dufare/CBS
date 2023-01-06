@@ -9,6 +9,8 @@ import LogIn from "./components/LogIn Comp/LogIn";
 import Register from "./components/Reg Comp/Register";
 import DriverHome from "./Driver Components/DriverHome";
 
+import UserHeader from "./components/UserHeader";
+
 
 
 
@@ -25,6 +27,8 @@ function App() {
         <Route exact path="/MapRide" element={<MapRide />}></Route>
         <Route exact path="/AdminHome" element={<AdminHome />}></Route>
         <Route exact path="/DriverHome" element={<DriverHome />}></Route>
+        
+        <Route exact path="/UserHeader" element={<UserHeader />}></Route>
       </Routes>
     </>
   );

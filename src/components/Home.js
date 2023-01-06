@@ -5,11 +5,14 @@ import MapRide from './MapRide'
 
 
 const Home = () => {
+  
   return (
     
     <div > 
     <MapRide/>
     <FromTo/>
+   
+    
     </div>
   )
 }
