@@ -1,7 +1,16 @@
 export const userConstant = {
     REGISTER_USER : "REGISTER_USER",
     LOGIN_USER : "LOGIN_USER"
+    //user
 };
-export const adminConstant={
-    GET_ALL_USERS : "GET_ALL_USERS",
+
+export const cr_ride_ReqCons={
+    CREATE_RIDE_REQ : "CREATE_RIDE_REQ",
+    //user
 };
+
+//driver
+export const driverConst={
+    GET_ALL_RIDES_REQ : "GET_ALL_RIDES_REQ",
+    //driver
+}
