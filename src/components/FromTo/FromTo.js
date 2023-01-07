@@ -1,10 +1,8 @@
 import React, { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Form } from "react-router-dom";
 import { Input } from "reactstrap";
 import fromTo from "./fromTo.module.css";
-import { FaHome } from "react-icons/fa";
 import { rideRequest } from "../../Redux/Action/UserActions";
 import { useDispatch } from "react-redux";
 

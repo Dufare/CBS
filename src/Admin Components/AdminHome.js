@@ -1,39 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AdminHome.css";
+import { motion } from "framer-motion";
 import UserMng from "./UserMng";
-
+import DriverMng from "./DriverMng";
 const AdminHome = () => {
+  
+  const [isopen , setIsopen]=useState(false);
+  const [userOn , setUserOn]=useState(false);
+  const [driverOn , setDriverOn]=useState(false);
+   
+  
+  const toggle =()=> setIsopen(!isopen);
+  const userSwitch =()=> setUserOn(!userOn);
+  const driverSwitch =()=> setDriverOn(!driverOn);
+
+
+  
   return (
     <>
-    <div className="conatiner">
-      <div className="side_nav card ">
-        <div className="card-body">
-          <h5>ADMIN DASHBOARD</h5>
-          <div className="dash_item">
-            <ul className="list-group list-group-flush rounded">
-              <li className="list-group-item">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-person mx-2"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-                </svg>
-                User Management
-              </li>
-              <li className="list-group-item">
-                <i class="bi bi-car-front mx-2"></i>Driver Management
-              </li>
-              <li className="list-group-item">Cost Management</li>
-            </ul>
+    <div className="main-conatiner">
+      <motion.div animate={{ width: isopen ?"200px":"50px" }} className="sidebar">
+        <div className="top_section">
+          <div className="bars">
+            <i class="bi bi-menu-button" onClick={toggle }></i>
+          </div>
+         {isopen&& <p className="logo">Admin Dashboard</p>}
+        </div>
+        <div className="sec">
+          <div className="main-sec">
+            <div className="top_section1">
+              <div className="bars">
+                <i class="bi bi-person"></i>
+              </div>
+              {isopen&&   <p className="logo"><a onClick={userSwitch }>User Management</a></p>}
+            </div>
+          </div>
+
+          <div className="main-sec my-3">
+            <div className="top_section1">
+              <div className="bars">
+                <i class="bi bi-car-front"></i>
+              </div>
+              {isopen&& <p className="logo"><a onClick={driverSwitch}>Driver Managemnt </a></p>}
+            </div>
+          </div>
+
+          <div className="main-sec">
+            <div className="top_section1">
+              <div className="bars">
+                <i class="bi bi-bar-chart"></i>
+              </div>
+              {isopen&&<p className="logo">Dashboard</p>}
+            </div>
           </div>
         </div>
-      </div>
+        
+      </motion.div>
+
+      <motion.div animate={{ width: isopen ?"838px":"1102px"  }} className="container-xxl admin-body">
+    
+      {userOn &&  <UserMng/>}
+      {driverOn &&  <DriverMng/>}
+        
+    </motion.div>
     </div>
-   <UserMng/>
+    
    </>
   );
 };

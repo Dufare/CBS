@@ -2,7 +2,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import FromTo from "./FromTo/FromTo";
-import cab1 from "../assets/cab1.jpg"
+
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export default function MapRide() {

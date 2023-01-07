@@ -1,7 +1,58 @@
 .error-msg{
   color: red;
 }
+.second-cont{
+  background-color: #101010;
+}
+.cont_body{
+  margin-left: 100px;
+  
+}
+.text-cont{
+  color: #f1f2f2cb;
+}
+.button-grp{
+  width: 50% !important;
+  margin-right: 30px !important ;
+  
+  padding-bottom: 30px;
+}
+.ride-card{
+  background-color: #1010109a;
+}
+.navbar-main{
+  background-color: #000000;
+}
 
+
+/*---------footer*/
+
+
+.footer-card
+{
+  padding-bottom: 30px !important;
+  background-color: #4646464b;
+  color: #f1f2f2;
+}
+
+.contact-footer{
+margin-bottom: 30px !important;
+padding: 30px;
+}
+/* ===============USER HOME */
+.img-head{
+ width:100%;
+}
+.main-card
+{
+width: 200%;
+height: auto;
+margin-left: -50%;
+margin-top: 50%;
+background-color: #26262698;
+color: rgba(245, 245, 245, 0.687);
+
+}
 
 /* =============== */
 
@@ -102,4 +153,13 @@ img.profile-photo-lg{ height: 80px; width: 80px; border-radius: 50%;
 }
 .pref-ride-text{
   color: rgba(245, 245, 245, 0.532);
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  --bs-gutter-x: 0rem !important;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-right: auto;
+  margin-left: auto;
 }
