@@ -13,7 +13,7 @@
     
     height: 100%;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(16, 16, 16, 0.781);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(0px);
     webkit-backdrop-filter: blur(0px);
@@ -32,4 +32,23 @@
 }
 .coloumn-reg{
     margin-top: -50px;
+}
+.login-model{
+    height: auto;
+    width: 170%;
+    margin-left: -183px;
+    background-color: rgba(79, 79, 79, 0.299);
+}
+.model-head{
+    border-bottom: var(--bs-modal-header-border-width) solid #343434;
+}
+.model-title{
+    color: rgba(238, 238, 238, 0.381);
+}
+.user_name{
+    color: rgba(238, 238, 238, 0.674);
+    margin-top: 6px;
+}
+.reg-img{
+    margin-top: -59px;
 }

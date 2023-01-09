@@ -1,5 +1,6 @@
 import axios from "axios";
 import { userConstant } from "../Constants/UserConst";
+import { driverConstant } from "../Constants/UserConst";
 import { store } from "../Store";
 import { cr_ride_ReqCons } from "../Constants/UserConst";
 import { driverConst } from "../Constants/UserConst";
@@ -9,6 +10,11 @@ import { useEffect } from "react";
 export const registerUser = async(payload) => {
     const register = await axios.post('http://localhost:5000/Users',payload)
     store.dispatch({type:userConstant.REGISTER_USER,payload:register.data})
+    //  REGISTER USER
+}
+export const registerDriver = async(payload) => {
+    const register = await axios.post(' http://localhost:5000/Drivers',payload)
+    store.dispatch({type:driverConstant.REGISTER_DRIVER,payload:register.data})
     //  REGISTER USER
 }
 

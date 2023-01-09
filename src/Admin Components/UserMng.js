@@ -1,48 +1,81 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import "./AdminHome.css";
 
 const UserMng = () => {
-  return (
-    <div className='user_table conatiner '>
-      <table className="table">
-  <thead className='thread_user'>
-    <tr>
-      <th scope="col">USERNAME</th>
-      <th scope="col">PASSWORD</th>
-      <th scope="col">EMIAL</th>
-      <th scope="col">PHONE</th>
-      <th scope="col">ADDRESS</th>
-      <th scope="col">RIDES</th>
-      <th scope="col">EDIT</th>
-      <th scope="col">DELETE</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      
-      <td>@mdo</td>
-      <td><i class="bi bi-pen"></i></td>
-      <td><i class="bi bi-trash"></i></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td><i class="bi bi-pen"></i></td>
-    </tr>
-  </tbody>
-</table>
-    </div>
-  )
-}
+  const [getAllUser, setAllUser] = useState([]);
 
-export default UserMng
+  //Get All User 
+  const fetchUsers = async () => {
+    const users = await fetch("http://localhost:5000/Users");
+    const parsedData = await users.json();
+    setAllUser(parsedData);
+    console.log(parsedData);
+  };
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+
+
+  //   Delete User
+  const deleteUser = async(id) => {
+   
+    fetch(`http://localhost:5000/Users/${id}`,{
+        method :'DELETE'
+    }).then((result)=>{
+        result.json().then((resp)=>{
+            console.warn(resp)
+        })
+    })
+   
+    fetchUsers();
+  
+  };
+
+  return (
+    <div>
+
+<div class="col-auto text-usermng">
+    <h3> Users</h3>
+  </div>
+      <div class="row  ">
+ 
+  <div class="col-auto my-2">
+    <input type="serach" id="inputPassword6" class="form-control d-flex flex-row-reverse search-box" aria-describedby="passwordHelpInline" placeholder="Search"/>
+  </div>
+ 
+</div>
+
+    <table class="table">
+      <thead class="table-thread">
+        <tr>
+          <th scope="col">Customer Id</th>
+          <th scope="col">User Name</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Address</th>
+          <th scope="col">Email Id</th>
+          <th scope="col">Edit User</th>
+          <th scope="col">Delete User</th>
+        </tr>
+      </thead>
+      <tbody className="user-body">
+        {getAllUser.map((user) => {
+          return (
+          <tr>
+            <th scope="row">{user.id}</th>
+            <td>{user.userName}</td>
+            
+            <td>{user.mobile}</td>
+            <td>{user.address}</td>
+            <td>{user.email}</td>
+            <td><i class="bi bi-clipboard2-check"></i></td>
+            <td><i class="bi bi-trash"onClick={()=>deleteUser(user.id)}></i></td>
+          </tr>
+       )})}
+      </tbody>
+    </table>
+    </div>
+  );
+};
+
+export default UserMng;
