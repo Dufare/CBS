@@ -23,10 +23,26 @@
 .navbar-main{
   background-color: #000000;
 }
-
-
-/*---------footer*/
-
+.date-time{
+  padding: 30px !important;
+}
+.date-inner{
+ 
+  margin-left: 10px;
+  padding: 30px !important;
+  background-color: #2020204e;
+  border-radius: 10px;
+  
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.input-datetime
+{
+  background-color: #1c1d1d62;
+  color: rgba(255, 255, 255, 0.199);
+}
 
 .footer-card
 {
@@ -48,13 +64,63 @@ padding: 30px;
 width: 200%;
 height: auto;
 margin-left: -50%;
-margin-top: 50%;
-background-color: #26262698;
+margin-top: 10%;
+background-color: #181818ae;
 color: rgba(245, 245, 245, 0.687);
 
 }
 
-/* =============== */
+.sidebarr
+{
+  margin-top: 10px;
+  background-color: #1a1a1a;
+  color: whitesmoke;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.sidebarr:hover{
+  background-color: rgba(53, 53, 53, 0.338);
+  color: #ffffff;
+}
+
+.icon-cont {
+  width: auto;
+  background-color: #3c03487a;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.icon-cont2 {
+  width: auto;
+  background-color: #e9b73952;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.icon-cont3 {
+  width: auto;
+  background-color: #e876ff2f;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+
+
+
+/* ----------------------------- */
 
 .App {
   text-align: center;

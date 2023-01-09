@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import {Link} from "react-router-dom"
-import logo from "../assets/taxi-26010.png";
 import LogIn from "./LogIn Comp/LogIn";
 
 
 const Navbar = () => {
+  const dataIsThere = localStorage.getItem("email") !== null;
+  const logOut =  () => {
+   localStorage.removeItem("email");
+   localStorage.removeItem("password");
+   window.location.reload(false);
+  }
+   
+
+ 
+
   return (
     
     <div>
@@ -25,8 +34,8 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item mx-2">
-              <Link to="/AdminHome" className="nav-link" href="#about">
-                ABOUT US
+              <Link to="/Home" className="nav-link" href="#about">
+                DRIVER
               </Link>
             </li>
 
@@ -38,16 +47,23 @@ const Navbar = () => {
 
            
           </ul>
-          <div class="collapse navbar-collapse mx-4" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" ><i class="bi bi-bell"></i></a></li>
-                        <li class="nav-item"><a class="nav-link"  data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="bi bi-person" ></i> </a></li>
+          <div className="collapse navbar-collapse mx-4" id="navbarResponsive">
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item"><a className="nav-link" ><i className="bi bi-bell"></i></a></li>
+                        <li className="nav-item"><a className="nav-link"   >
+                         { dataIsThere ?  <p> {localStorage.getItem("email")}  <i onClick={logOut} class="bi bi-arrow-left-circle"></i></p>
+                         
+
+                         :<i className="bi bi-person" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>}
+                          
+                          
+                          </a></li>
                         
                     </ul>
                 </div>
         </nav>
-        <LogIn/>
        
+       <LogIn/>
     </div>
   );
 };

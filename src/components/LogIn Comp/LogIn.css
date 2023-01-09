@@ -45,3 +45,10 @@
 .model-title{
     color: rgba(238, 238, 238, 0.381);
 }
+.user_name{
+    color: rgba(238, 238, 238, 0.674);
+    margin-top: 6px;
+}
+.reg-img{
+    margin-top: -59px;
+}

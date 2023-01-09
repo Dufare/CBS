@@ -3,6 +3,11 @@ export const userConstant = {
     LOGIN_USER : "LOGIN_USER"
     //user
 };
+export const driverConstant = {
+    REGISTER_DRIVER : "REGISTER_DRIVER",
+    //LOGIN_USER : "LOGIN_USER"
+    //user
+};
 
 export const cr_ride_ReqCons={
     CREATE_RIDE_REQ : "CREATE_RIDE_REQ",

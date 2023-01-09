@@ -136,9 +136,9 @@ const Register = () => {
 
                           <div className="mb-1">
                             <Link
-                              // to="/LogIn"
+                               to="/UserHome"
                               className="cursor-pointer text-green-600 hover:text-green-800"
-                            >
+                            >{window.location.reload(false)}
                               <div className="mb-1" >
                                 <a className="newacc" >
                                   Already have an Account

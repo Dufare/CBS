@@ -2,15 +2,17 @@ import React, { useState,useRef } from "react";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import "./LogIn.css";
 import taxi2 from "../../assets/taxi 2.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebaseconfig/firebase";
+import { auth } from "../../firebaseconfig/firebase"; //User Auth
 import GoogleButton from "react-google-button";
-import {UserHome} from "../UserHome"
-import { Navbar } from "react-bootstrap";
+import {getAuth ,GoogleAuthProvider,signInWithPopup} from "firebase/auth"
+import { motion } from "framer-motion";
+import DriverHomePage from "../../Driver Components/DriverHomePage";
 
 const LogIn = () => {
   const navigate = useNavigate();
+
 
   //set user name and password in local storage 
   const [user, setUser] = useState({
@@ -24,9 +26,12 @@ const LogIn = () => {
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+  
 
+
+  //Email & Password Authentication
   const handleSubmit = () => {
-    console.log(!user.email || !user.password);
+   // console.log(!user.email || !user.password);
     if (!user.email || !user.password )
     {
       setErrorMsg("Please fill all detials to LogIn");
@@ -34,26 +39,49 @@ const LogIn = () => {
     }
     setErrorMsg("");
     signInWithEmailAndPassword(auth, user.email, user.password)
+    
+
       .then((res) => {
+        
         
         localStorage.setItem("email", user.email);
         localStorage.setItem("password", user.password);
 
         navigate("/UserHome");
+        window.location.reload(false); //page refresh
        
       })
       .catch((err) => console.log("Error", err));
 
     setUser({
       password: "",
-
       email: "",
     });
   };
+  const handleDriver = () => {
+    navigate("/DriverHomePage");
+  }
+  // User Google Authentication 
+  const provider = new GoogleAuthProvider();
+  const signInWithGoogle=()=>{
+    signInWithPopup(auth,provider).then((result)=>{
+      const name = result.user.displayName;
+      const email = result.user.email;
+
+      localStorage.setItem("name" , name)
+      localStorage.setItem("email" , email)
+      window.location.reload(false);   //page refresh
+     
+
+
+    }).catch((err) => console.log("Error", err));
+  }
+
 
   return (
     <>
-    
+      
+   
       <div
        class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
       >
@@ -95,7 +123,7 @@ const LogIn = () => {
                             </div>
                             <div class="mb-1">
                               <input
-                                type="text"
+                                type="password"
                                 className="form-control my-4 input-field"
                                 id="formGroupExampleInput2"
                                 placeholder="Password"
@@ -111,10 +139,22 @@ const LogIn = () => {
                                 className="btn btn-outline-primary"
                                 onClick={handleSubmit}
                               >
-                                Log In
+                               <i class="bi bi-person"></i>
                               </button>
+                              
+                              <button
+                                type="button"
+                                className="btn btn-outline-success mx-3"
+                                onClick={handleDriver}
+                                
+                              >
+                               <i class="bi bi-car-front"></i>
+                              </button>
+                              
                             </div>
-
+                           
+                             
+                            
                             <div className="mb-1">
                               <Link
                                 to="/Register"
@@ -124,12 +164,20 @@ const LogIn = () => {
                                   <a className="newacc" >Create New Account</a>
                                 </div>
                               </Link>
+                              <Link
+                                to="/DriverRegister"
+                                className="cursor-pointer text-green-600 hover:text-green-800"
+                              >
+                                <div class="mb-1 my-2">
+                                  <a className="newacc" >Create Driver Account</a>
+                                </div>
+                              </Link>
                               <div className="conatiner my-4">
+                                
                                 <GoogleButton
                                   className="rounded"
-                                  onClick={() => {
-                                    console.log("Google button clicked");
-                                  }}
+                                  onClick={signInWithGoogle}
+                                  
                                 />
                               </div>
                             </div>
@@ -144,7 +192,7 @@ const LogIn = () => {
           </div>
         </div>
       </div>
-
+     
     </>
   );
 };

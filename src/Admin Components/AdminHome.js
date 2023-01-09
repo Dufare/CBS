@@ -22,7 +22,7 @@ const AdminHome = () => {
       <motion.div animate={{ width: isopen ?"200px":"50px" }} className="sidebar">
         <div className="top_section">
           <div className="bars">
-            <i class="bi bi-menu-button" onClick={toggle }></i>
+            <i class="bi bi-menu-button icon" onClick={toggle }></i>
           </div>
          {isopen&& <p className="logo">Admin Dashboard</p>}
         </div>
@@ -30,7 +30,7 @@ const AdminHome = () => {
           <div className="main-sec">
             <div className="top_section1">
               <div className="bars">
-                <i class="bi bi-person"></i>
+                <i class="bi bi-person"onClick={userSwitch }></i>
               </div>
               {isopen&&   <p className="logo"><a onClick={userSwitch }>User Management</a></p>}
             </div>
@@ -39,7 +39,7 @@ const AdminHome = () => {
           <div className="main-sec my-3">
             <div className="top_section1">
               <div className="bars">
-                <i class="bi bi-car-front"></i>
+                <i class="bi bi-car-front" onClick={driverSwitch}></i>
               </div>
               {isopen&& <p className="logo"><a onClick={driverSwitch}>Driver Managemnt </a></p>}
             </div>
@@ -63,6 +63,7 @@ const AdminHome = () => {
       {driverOn &&  <DriverMng/>}
         
     </motion.div>
+    
     </div>
     
    </>
