@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import "./UserPayment.css"
 
 
 
@@ -10,8 +11,8 @@ const UserPayment = () => {
     let carNumber = Math.floor(Math.random() * 10000 + 1); 
 
   return (
-    <div>
-        <div className="containerr">
+    <div className='container main-div-u my-5' >
+        <div className="container main_ucont">
         <div className="row m-0">
             <div className="col-lg-7 pb-5 pe-lg-5">
                 <div className="row">

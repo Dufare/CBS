@@ -1,10 +1,11 @@
-/* -----------------User Payment css--------------
+-----------------User Payment css--------------
 
 
-.containerr {
+.main_ucont {
+    
     color: #ccc;
-    margin: 79px auto;
-    max-width: 1000px;
+    margin: 100px ;
+    max-width: 100px;
     background-color: rgba(52, 52, 52, 0.509);
     padding: 0;
     border-radius: 10px;
@@ -30,7 +31,7 @@
     font-size: 14px;
 }
 
-.form-control:focus {
+.form-controll:focus {
     box-shadow: none;
     border-bottom: 2px solid #ccc;
     background-color: transparent;
@@ -138,4 +139,4 @@ img {
 h5,
 .text-muted {
     font-family: 'Poppins', sans-serif;
-} */
+}
