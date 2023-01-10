@@ -72,13 +72,10 @@ const UserHome = () => {
       ridedate: "",
       ridetime: "",
     });
+    navigate("/UserPayment")
     dispatch(rideRequest(ride_req));
   };
-  const callFun=()=>{
-    handleSubmit();
-    navigate("/UserPayment")
-
-  }
+ 
 
   <UserPayment ridedetails={ride_req}/ >
   return (
@@ -330,7 +327,7 @@ const UserHome = () => {
                   type="button"
                   className="btn btn-outline-warning "
                   data-bs-dismiss="modal"
-                  onClick={callFun}
+                  onClick={handleSubmit}
                 >
                   Book Your Ride
                 </button>

@@ -11,27 +11,27 @@ import Home from "./Driver Components/Home";
 import UserPayment from "./components/UserPayment";
 import CompletedRides from "./Driver Components/CompletedRides";
 
-
-
 function App() {
-  
   return (
     <>
       <Navbar />
-     
+
       <Routes>
-      <Route exact path="/LogIn" element={<LogIn />}></Route>
-      <Route exact path="/Register" element={<Register />}></Route>
-       
-        
+        <Route exact path="/LogIn" element={<LogIn />}></Route>
+        <Route exact path="/Register" element={<Register />}></Route>
         <Route exact path="/AdminHome" element={<AdminHome />}></Route>
-        
-    
         <Route exact path="/UserHome" element={<UserHome />}></Route>
-        <Route exact path="/DriverRegister" element={<DriverRegister />}></Route>
-        
+        <Route
+          exact
+          path="/DriverRegister"
+          element={<DriverRegister />}
+        ></Route>
         <Route exact path="/Home" element={<Home />}></Route>
-        <Route exact path="/DriverHomePage" element={<DriverHomePage />}></Route>
+        <Route
+          exact
+          path="/DriverHomePage"
+          element={<DriverHomePage />}
+        ></Route>
         <Route exact path="/UserPayment" element={<UserPayment />}></Route>
         <Route exact path="/CompletedRide" element={<CompletedRides />}></Route>
       </Routes>

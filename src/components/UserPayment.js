@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import "./UserPayment.css"
+import Rupay from "../assets/Rupay.png"
+import MasterVisa from "../assets/MasterVisa.png"
+import styles from "./UserPayment.css"
 
 
 
 const UserPayment = () => {
     const data = useSelector(state=> state.rootReducer.userReducer.ride_req)
-    //const data = useSelector(state=>state); 
    console.log(data)
+
     let carNumber = Math.floor(Math.random() * 10000 + 1); 
 
   return (
-    <div>
-        <div className="containerr">
+    <div className='container main-div-u my-5' >
+        <div className="container main_ucont">
         <div className="row m-0">
             <div className="col-lg-7 pb-5 pe-lg-5">
                 <div className="row">
@@ -80,7 +84,7 @@ const UserPayment = () => {
                     </div>
                     <div className="col-12 px-0">
                         <div className="row bg-light m-0">
-                            <div className="col-12 px-4 my-4">
+                            {/* <div className="col-12 px-4 my-4">
                                 <p className="fw-bold">Payment detail</p>
                             </div>
                             <div className="col-12 px-4">
@@ -106,11 +110,17 @@ const UserPayment = () => {
                                         <input className="form-control3" type="text"  placeholder="XXX"/>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="row m-0">
                             <div className="col-12  mb-4 p-0">
-                                <div className="btn btn-primary">Pre Book<span className="fas fa-arrow-right ps-2"></span>
+                                <div className="btn btn-primaryy"data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={""}>Card Pay
+                                <span className="fas fa-arrow-right ps-2"></span>
+                                </div>
+                            </div>
+                            <div className="col-12  mb-4 p-0 my-3">
+                                <div className="btn btn-primaryy" onClick={""}>UPI PAY
+                                <span className="fas fa-arrow-right ps-2"></span>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +129,13 @@ const UserPayment = () => {
             </div>
         </div>
     </div>
-      
+
+
+
+
+
+   
+     
     </div>
   )
 }
