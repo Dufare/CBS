@@ -12,23 +12,16 @@ import DriverHomePage from "../../Driver Components/DriverHomePage";
 
 const LogIn = () => {
   const navigate = useNavigate();
-
-
   //set user name and password in local storage 
   const [user, setUser] = useState({
     password: "",
     email: "",
   });
-
   //error message
   const [errorMsg, setErrorMsg] = useState("");
-
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  
-
-
   //Email & Password Authentication
   const handleSubmit = () => {
    // console.log(!user.email || !user.password);
@@ -39,8 +32,7 @@ const LogIn = () => {
     }
     setErrorMsg("");
     signInWithEmailAndPassword(auth, user.email, user.password)
-    
-
+  
       .then((res) => {
         
         
@@ -59,7 +51,7 @@ const LogIn = () => {
     });
   };
   const handleDriver = () => {
-    navigate("/DriverHomePage");
+    navigate("/Home");
   }
   // User Google Authentication 
   const provider = new GoogleAuthProvider();
@@ -137,6 +129,7 @@ const LogIn = () => {
                               <button
                                 type="button"
                                 className="btn btn-outline-primary"
+                                data-bs-dismiss="modal"
                                 onClick={handleSubmit}
                               >
                                <i class="bi bi-person"></i>
@@ -145,8 +138,8 @@ const LogIn = () => {
                               <button
                                 type="button"
                                 className="btn btn-outline-success mx-3"
-                                onClick={handleDriver}
-                                
+                                data-bs-dismiss="modal"
+                                onClick={handleDriver}                                
                               >
                                <i class="bi bi-car-front"></i>
                               </button>

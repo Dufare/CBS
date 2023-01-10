@@ -4,12 +4,12 @@ import Navbar from "./components/Navbar";
 import AdminHome from "./Admin Components/AdminHome";
 import LogIn from "./components/LogIn Comp/LogIn";
 import Register from "./components/Reg Comp/Register";
-
 import UserHome from "./components/UserHome";
 import DriverHomePage from "./Driver Components/DriverHomePage";
 import DriverRegister from "./Driver Components/DriverRegister";
-
 import Home from "./Driver Components/Home";
+import UserPayment from "./components/UserPayment";
+import CompletedRides from "./Driver Components/CompletedRides";
 
 
 
@@ -32,6 +32,8 @@ function App() {
         
         <Route exact path="/Home" element={<Home />}></Route>
         <Route exact path="/DriverHomePage" element={<DriverHomePage />}></Route>
+        <Route exact path="/UserPayment" element={<UserPayment />}></Route>
+        <Route exact path="/CompletedRide" element={<CompletedRides />}></Route>
       </Routes>
     </>
   );

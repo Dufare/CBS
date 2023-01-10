@@ -63,8 +63,7 @@ const UserMng = () => {
           return (
           <tr>
             <th scope="row">{user.id}</th>
-            <td>{user.userName}</td>
-            
+            <td>{user.userName}</td>           
             <td>{user.mobile}</td>
             <td>{user.address}</td>
             <td>{user.email}</td>

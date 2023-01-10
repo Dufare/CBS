@@ -121,7 +121,7 @@ const Home = () => {
 
           {isopen && (
             <div className="conatiner d-flex icon-cont2 mx-4">
-              <i class="bi bi-table"></i>
+              <i class="bi bi-credit-card"></i>
               <h5 className="mx-4">Payment History</h5>
             </div>
           )}

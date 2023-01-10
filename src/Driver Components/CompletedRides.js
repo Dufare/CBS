@@ -3,10 +3,9 @@ import React, { useEffect, useState } from 'react'
 const CompletedRides = () => {
     const [data, setData] = useState([]);
     const [ride, setRide] = useState([]);
-
   //Get All Rides Request
   const fetchRides = async () => {
-    const data = await fetch(" http://localhost:5000/RideRequest");
+    const data = await fetch("   http://localhost:5000/CompletedRides");
     const parsedData = await data.json();
     setData(parsedData);
   };
@@ -15,18 +14,7 @@ const CompletedRides = () => {
     fetchRides();
   }, []);
 
-  //Get Single Ride
-  const getRides = async (id) => {
-    fetch(`http://localhost:5000/RideRequest/${id}`, {
-      method: "GET",
-    }).then(async (result) => {
-      await result.json().then((resp) => {
-        console.log(resp)
-      });
-    });
 
-
-  };
   return (
     <div>
         <div className="conatiner history-cont">
