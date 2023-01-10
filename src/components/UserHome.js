@@ -8,10 +8,14 @@ import cab6 from "../assets/mist.jpg";
 import cab7 from "../assets/mount.jpg";
 import { rideRequest } from "../../src/Redux/Action/UserActions";
 import { useDispatch } from "react-redux";
-import { DatePicker } from "reactstrap-date-picker";
+import "./UserPayment.css"
+import UserPayment from "./UserPayment";
+import { useNavigate } from "react-router-dom";
+
 
 const UserHome = () => {
   const [getCity, setCity] = useState([]);
+  const navigate = useNavigate();
   
 
 
@@ -70,8 +74,15 @@ const UserHome = () => {
     });
     dispatch(rideRequest(ride_req));
   };
+  const callFun=()=>{
+    handleSubmit();
+    navigate("/UserPayment")
+
+  }
+
+  <UserPayment ridedetails={ride_req}/ >
   return (
-    <>
+    <>  
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
@@ -318,9 +329,10 @@ const UserHome = () => {
                 <button
                   type="button"
                   className="btn btn-outline-warning "
-                  onClick={handleSubmit}
+                  data-bs-dismiss="modal"
+                  onClick={callFun}
                 >
-                  Go For Payment
+                  Book Your Ride
                 </button>
               </div>
             </div>
@@ -474,7 +486,7 @@ const UserHome = () => {
                 <i className="bi bi-facebook"></i>
               </a>
               <a className="mx-2" href="#!">
-                <i className="bi bi-facebook"></i>
+                <i class="bi bi-google"></i>
               </a>
             </div>
           </div>

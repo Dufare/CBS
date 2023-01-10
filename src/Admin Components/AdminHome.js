@@ -9,13 +9,9 @@ const AdminHome = () => {
   const [userOn , setUserOn]=useState(false);
   const [driverOn , setDriverOn]=useState(false);
    
-  
   const toggle =()=> setIsopen(!isopen);
   const userSwitch =()=> setUserOn(!userOn);
   const driverSwitch =()=> setDriverOn(!driverOn);
-
-
-  
   return (
     <>
     <div className="main-conatiner">
@@ -32,19 +28,17 @@ const AdminHome = () => {
               <div className="bars">
                 <i class="bi bi-person"onClick={userSwitch }></i>
               </div>
-              {isopen&&   <p className="logo"><a onClick={userSwitch }>User Management</a></p>}
+              {isopen&&<p className="logo"><a onClick={userSwitch }>User Management</a></p>}
             </div>
           </div>
-
           <div className="main-sec my-3">
             <div className="top_section1">
               <div className="bars">
                 <i class="bi bi-car-front" onClick={driverSwitch}></i>
               </div>
-              {isopen&& <p className="logo"><a onClick={driverSwitch}>Driver Managemnt </a></p>}
+              {isopen&&<p className="logo"><a onClick={driverSwitch}>Driver Managemnt </a></p>}
             </div>
           </div>
-
           <div className="main-sec">
             <div className="top_section1">
               <div className="bars">
@@ -53,19 +47,13 @@ const AdminHome = () => {
               {isopen&&<p className="logo">Dashboard</p>}
             </div>
           </div>
-        </div>
-        
+        </div>      
       </motion.div>
-
-      <motion.div animate={{ width: isopen ?"838px":"1102px"  }} className="container-xxl admin-body">
-    
-      {userOn &&  <UserMng/>}
-      {driverOn &&  <DriverMng/>}
-        
-    </motion.div>
-    
-    </div>
-    
+      <motion.div animate={{ width: isopen ?"838px":"1102px"  }} className="container-xxl admin-body">   
+      {userOn &&<UserMng/>}
+      {driverOn&&<DriverMng/>}       
+    </motion.div>   
+    </div>   
    </>
   );
 };
