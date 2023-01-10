@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/LogIn" element={<LogIn />}></Route>
         <Route exact path="/Register" element={<Register />}></Route>
         <Route exact path="/AdminHome" element={<AdminHome />}></Route>
-        <Route exact path="/" element={<UserHome />}></Route>
+        <Route exact path="/UserHome" element={<UserHome />}></Route>
         <Route
           exact
           path="/DriverRegister"
