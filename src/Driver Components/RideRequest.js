@@ -17,7 +17,7 @@ const RideRequest = () => {
   const rideById = async (id) => {
     const dataa = await fetch(`http://localhost:5000/RideRequest/${id}`);
     const response = await dataa.json();
-    console.log(response);
+    //console.log(response);
     const ridedata = ({
       "from" : response.from,
       "to": response.to,
@@ -30,7 +30,7 @@ const RideRequest = () => {
       "ridetime" : response.ridetime 
 
   });
-  console.log({ridedata})
+ // console.log({ridedata})
     
     axios.post('http://localhost:5000/CompletedRides', {  // Enter your IP address here  
     ...ridedata // body data type must match "Content-Type" header

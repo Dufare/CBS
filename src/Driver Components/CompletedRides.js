@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const CompletedRides = () => {
+ 
     const [data, setData] = useState([]);
     const [ride, setRide] = useState([]);
   //Get All Rides Request
@@ -44,7 +45,8 @@ const CompletedRides = () => {
               <th scope="col">Ride Date</th>
               <th scope="col">Ride Time</th>
               <th scope="col">Ride Charge</th>
-              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+              
             </tr>
           </thead>
 
@@ -62,12 +64,14 @@ const CompletedRides = () => {
                 <td>
                   <button
                     type="button"
-                    className="btn btn-outline-success btn-sm disabled"
+                    
+                    className="btn btn-outline-success btn-sm disabled "
                    
                   >
                     Ride Completed
                   </button>
                 </td>
+                
               </tr>
               ))}
           </tbody>

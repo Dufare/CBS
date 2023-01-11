@@ -7,8 +7,9 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseconfig/firebase"; //User Auth
 import GoogleButton from "react-google-button";
 import {getAuth ,GoogleAuthProvider,signInWithPopup} from "firebase/auth"
-import { motion } from "framer-motion";
-import DriverHomePage from "../../Driver Components/DriverHomePage";
+
+
+
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -22,6 +23,8 @@ const LogIn = () => {
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+
+
   //Email & Password Authentication
   const handleSubmit = () => {
    // console.log(!user.email || !user.password);
@@ -39,7 +42,7 @@ const LogIn = () => {
         localStorage.setItem("email", user.email);
         localStorage.setItem("password", user.password);
 
-        navigate("/UserHome");
+        navigate("/");
         window.location.reload(false); //page refresh
        
       })
@@ -49,6 +52,8 @@ const LogIn = () => {
       password: "",
       email: "",
     });
+  
+   
   };
   const handleDriver = () => {
     navigate("/Home");
@@ -72,7 +77,7 @@ const LogIn = () => {
 
   return (
     <>
-      
+
    
       <div
        class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
@@ -172,6 +177,7 @@ const LogIn = () => {
                                   onClick={signInWithGoogle}
                                   
                                 />
+                               
                               </div>
                             </div>
                           </div>
