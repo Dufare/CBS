@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import "../LogIn Comp/LogIn.css";
 import taxi2 from "../../assets/register taxi.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../Redux/Action/UserActions";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -21,7 +21,7 @@ const Register = () => {
   const dispatch = useDispatch();
   //error message
   const [errorMsg, setErrorMsg] = useState("");
-  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+ // const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -136,7 +136,7 @@ const Register = () => {
 
                           <div className="mb-1">
                             <Link
-                               to="/UserHome"
+                               to="/"
                               className="cursor-pointer text-green-600 hover:text-green-800"
                              > 
                               <div className="mb-1" >

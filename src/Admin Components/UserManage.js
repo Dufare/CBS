@@ -1,33 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import "./AdminHome.css";
+const UserManage = () => {
+    const [getAllUser, setAllUser] = useState([]);
 
-const UserMng = () => {
-  const [getAllUser, setAllUser] = useState([]);
-
-  //Get All User
-  const fetchUsers = async () => {
-    const users = await fetch("http://localhost:5000/Users");
-    const parsedData = await users.json();
-    setAllUser(parsedData);
-    console.log(parsedData);
-  };
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  //   Delete User
-  const deleteUser = async (id) => {
-    fetch(`http://localhost:5000/Users/${id}`, {
-      method: "DELETE",
-    }).then((result) => {
-      result.json().then((resp) => {
-        console.warn(resp);
+    //Get All User
+    const fetchUsers = async () => {
+      const users = await fetch("http://localhost:5000/Users");
+      const parsedData = await users.json();
+      setAllUser(parsedData);
+      //console.log(parsedData);
+    };
+    useEffect(() => {
+      fetchUsers();
+    }, []);
+  
+    //   Delete User
+    const deleteUser = async (id) => {
+      fetch(`http://localhost:5000/Users/${id}`, {
+        method: "DELETE",
+      }).then((result) => {
+        result.json().then((resp) => {
+          //console.warn(resp);
+        });
       });
-    });
-
-    fetchUsers();
-  };
-
+  
+      fetchUsers();
+    };
   return (
     <div>
       <div class="col-auto text-usermng">
@@ -82,7 +80,7 @@ const UserMng = () => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default UserMng;
+export default UserManage

@@ -4,11 +4,11 @@ import RideRequest from "./RideRequest";
 import CompletedRides from "./CompletedRides";
 
 const DriverHomePage = () => {
-  const [isopen, setIsopen] = useState(true);
+ // const [isopen, setIsopen] = useState(true);
   const [userOn, setUserOn] = useState(false);
   const [driverOn, setDriverOn] = useState(false);
 
-  const toggle = () => setIsopen(!isopen);
+
   const userSwitch = () => setUserOn(!userOn);
   const driverSwitch = () => setDriverOn(!driverOn);
 

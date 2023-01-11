@@ -150,3 +150,7 @@
 .label-driv{
     color: #FFF;
 }
+.status-col{
+    color: green;
+    text-decoration: underline;
+}

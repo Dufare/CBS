@@ -1,9 +1,8 @@
-
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import "../components/LogIn Comp/LogIn.css";
 import taxi2 from "../assets/driverreg.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { registerDriver } from "../Redux/Action/UserActions";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -141,8 +140,8 @@ const DriverRegister = () => {
                      to="/Home"
                     className="cursor-pointer text-green-600 hover:text-green-800"
                   >
-                    <div className="mb-1" >
-                      <a className="newacc" >
+                    <div className="mb-1">
+                      <a className="newacc">
                         Already have an Account
                       </a>
                     </div>

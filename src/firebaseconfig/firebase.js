@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import {getAuth ,GoogleAuthProvider,signInWithPopup} from "firebase/auth"
+import {getAuth } from "firebase/auth"
 
 
 // TODO: Add SDKs for Firebase products that you want to use
