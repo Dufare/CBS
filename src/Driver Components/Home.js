@@ -5,7 +5,6 @@ import cab3 from "../assets/driver3.png";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-
 const Home = () => {
   const nav = useNavigate();
   const [isopen, setIsopen] = useState(false);
@@ -17,14 +16,12 @@ const Home = () => {
 
   return (
     <>
-    
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
         data-bs-ride="false"
       >
         <div className="carousel-indicators">
-          
           <button
             type="button"
             data-bs-target="#carouselExampleCaptions"

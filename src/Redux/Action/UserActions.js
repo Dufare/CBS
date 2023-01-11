@@ -4,7 +4,7 @@ import { driverConstant } from "../Constants/UserConst";
 import { store } from "../Store";
 import { cr_ride_ReqCons } from "../Constants/UserConst";
 import { driverConst } from "../Constants/UserConst";
-import { useEffect } from "react";
+
 
 
 export const registerUser = async(payload) => {

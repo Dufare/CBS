@@ -34,8 +34,6 @@ function App() {
         ></Route>
         <Route exact path="/UserPayment" element={<UserPayment />}></Route>
         <Route exact path="/CompletedRide" element={<CompletedRides />}></Route>
-      
-
       </Routes>
     </>
   );

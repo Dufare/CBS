@@ -1,35 +1,28 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./AdminHome.css";
 
 const DriverMng = () => {
   const [getAllUser, setAllUser] = useState([]);
 
-  //Get All User 
+ // GET ALL USERS FOR TABEL
   const fetchUsers = async () => {
     const users = await fetch("http://localhost:5000/Drivers");
     const parsedData = await users.json();
     setAllUser(parsedData);
-    
   };
   useEffect(() => {
     fetchUsers();
   }, []);
 
+ // DELETE SINGLE USER IN TABLE
+  const deleteUser = async (id) => {
+    fetch(`http://localhost:5000/Drivers/${id}`, {
+      method: "DELETE",
+    }).then((result) => {
+      result.json().then((resp) => {});
+    });
 
-
-  //   Delete User
-  const deleteUser = async(id) => {
-   
-    fetch(`http://localhost:5000/Drivers/${id}`,{
-        method :'DELETE'
-    }).then((result)=>{
-        result.json().then((resp)=>{
-            
-        })
-    })
-   
     fetchUsers();
-  
   };
   return (
     <div>
@@ -47,7 +40,6 @@ const DriverMng = () => {
           />
         </div>
       </div>
-     
 
       <table class="table">
         <thead class="table-thread">
@@ -62,20 +54,28 @@ const DriverMng = () => {
           </tr>
         </thead>
         <tbody className="user-body">
-        {getAllUser.map((user) => {
-          return (
-          <tr>
-            <th scope="row">{user.id}</th>
-            <td>{user.userName}</td>
-            
-            <td>{user.mobile}</td>
-            <td>{user.address}</td>
-            <td>{user.email}</td>
-            <td><i class="bi bi-clipboard2-check"></i></td>
-            <td><i class="bi bi-trash"onClick={()=>deleteUser(user.id)}></i></td>
-          </tr>
-       )})}
-      </tbody>
+          {getAllUser.map((user) => {
+            return (
+              <tr>
+                <th scope="row">{user.id}</th>
+                <td>{user.userName}</td>
+
+                <td>{user.mobile}</td>
+                <td>{user.address}</td>
+                <td>{user.email}</td>
+                <td>
+                  <i class="bi bi-clipboard2-check"></i>
+                </td>
+                <td>
+                  <i
+                    class="bi bi-trash"
+                    onClick={() => deleteUser(user.id)}
+                  ></i>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

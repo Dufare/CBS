@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import cab1 from "../assets/cab1.png";
 import cab2 from "../assets/cab2.png";
 import cab3 from "../assets/cab3.png";
@@ -8,23 +8,18 @@ import cab6 from "../assets/mist.jpg";
 import cab7 from "../assets/mount.jpg";
 import { rideRequest } from "../../src/Redux/Action/UserActions";
 import { useDispatch } from "react-redux";
-import "./UserPayment.css"
+import "./UserPayment.css";
 import UserPayment from "./UserPayment";
 import { useNavigate } from "react-router-dom";
-
 
 const UserHome = () => {
   const [getCity, setCity] = useState([]);
   const navigate = useNavigate();
-  
-
-
-  
 
   const fetchCities = async () => {
     const city = await fetch("http://localhost:3001/Cities");
     const parsedData = await city.json();
-    setCity(parsedData);
+    setCity(parsedData).catch((err) => console.log("Error", err));
     //console.log(parsedData);
   };
 
@@ -72,14 +67,13 @@ const UserHome = () => {
       ridedate: "",
       ridetime: "",
     });
-    navigate("/UserPayment")
+    navigate("/UserPayment");
     dispatch(rideRequest(ride_req));
   };
- 
 
-  <UserPayment ridedetails={ride_req}/ >
+  <UserPayment ridedetails={ride_req} />;
   return (
-    <>  
+    <>
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
@@ -118,46 +112,50 @@ const UserHome = () => {
           </div>
         </div>
 
-
-      <div id="carouselExampleInterval" className="carousel slide" data-mdb-ride="carousel" data-mdb-interval="false">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={cab1} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>MOVING PEOPLE AND THE WORLD</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
+        <div
+          id="carouselExampleInterval"
+          className="carousel slide"
+          data-mdb-ride="carousel"
+          data-mdb-interval="false"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src={cab1} className="d-block w-100" alt="..." />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>MOVING PEOPLE AND THE WORLD</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img src={cab2} className="d-block w-100" alt="..." />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>
+                  Some representative placeholder content for the second slide.
+                </p>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img src={cab4} className="d-block w-100" alt="..." />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>
+                  Some representative placeholder content for the second slide.
+                </p>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img src={cab3} className="d-block w-100" alt="..." />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>
+                  Some representative placeholder content for the third slide.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="carousel-item">
-            <img src={cab2} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src={cab4} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src={cab3} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
-            </div>
-          </div>
-        </div>
         </div>
         <button
           className="carousel-control-prev"
@@ -347,7 +345,7 @@ const UserHome = () => {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              
+              href=" "
             >
               BOOK YOUR RIDE
             </a>

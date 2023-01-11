@@ -3,19 +3,21 @@ import React, { useEffect, useState } from 'react'
 const CompletedRides = () => {
  
     const [data, setData] = useState([]);
-    const [ride, setRide] = useState([]);
+    //const [ride, setRide] = useState([]);
+    
   //Get All Rides Request
   const fetchRides = async () => {
     const data = await fetch("   http://localhost:5000/CompletedRides");
     const parsedData = await data.json();
     setData(parsedData);
+    
   };
 
   useEffect(() => {
     fetchRides();
   }, []);
 
-
+  
   return (
     <div>
         <div className="conatiner history-cont">
@@ -45,7 +47,7 @@ const CompletedRides = () => {
               <th scope="col">Ride Date</th>
               <th scope="col">Ride Time</th>
               <th scope="col">Ride Charge</th>
-              <th scope="col">Action</th>
+              <th scope="col">Status</th>
               
             </tr>
           </thead>
@@ -61,16 +63,8 @@ const CompletedRides = () => {
                 <td> {post.ridedate}</td>
                 <td> {post.ridetime}</td>
                 <td> {post.ride_charge}</td>
-                <td>
-                  <button
-                    type="button"
-                    
-                    className="btn btn-outline-success btn-sm disabled "
-                   
-                  >
-                    Ride Completed
-                  </button>
-                </td>
+                <td className='status-col'> {post.status}</td>
+               
                 
               </tr>
               ))}

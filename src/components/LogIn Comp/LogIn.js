@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState} from "react";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import "./LogIn.css";
 import taxi2 from "../../assets/taxi 2.png";
@@ -6,7 +6,7 @@ import { Link,  useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseconfig/firebase"; //User Auth
 import GoogleButton from "react-google-button";
-import {getAuth ,GoogleAuthProvider,signInWithPopup} from "firebase/auth"
+import {GoogleAuthProvider,signInWithPopup} from "firebase/auth"
 
 
 
@@ -27,7 +27,7 @@ const LogIn = () => {
 
   //Email & Password Authentication
   const handleSubmit = () => {
-   // console.log(!user.email || !user.password);
+   
     if (!user.email || !user.password )
     {
       setErrorMsg("Please fill all detials to LogIn");
@@ -51,7 +51,8 @@ const LogIn = () => {
     setUser({
       password: "",
       email: "",
-    });
+    })
+    .catch((err) => console.log("Error", err));
   
    
   };
@@ -158,7 +159,7 @@ const LogIn = () => {
                                 to="/Register"
                                 className="cursor-pointer text-green-600 hover:text-green-800"
                               >
-                                <div class="mb-1 my-2">
+                                <div class="mb-1 my-2 ">
                                   <a className="newacc" >Create New Account</a>
                                 </div>
                               </Link>
@@ -167,7 +168,7 @@ const LogIn = () => {
                                 className="cursor-pointer text-green-600 hover:text-green-800"
                               >
                                 <div class="mb-1 my-2">
-                                  <a className="newacc" >Create Driver Account</a>
+                                  <a className="newacc"  >Create Driver Account</a>
                                 </div>
                               </Link>
                               <div className="conatiner my-4">

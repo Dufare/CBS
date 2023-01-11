@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { applyMiddleware } from "redux";
 import { rootReducer } from "./Reducer/RootReducer";
 import thunk from "redux-thunk";
 export const store = configureStore({
