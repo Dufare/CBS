@@ -3,9 +3,8 @@ import cab1 from "../assets/driver1.png";
 import cab2 from "../assets/driver2.png";
 import cab3 from "../assets/driver3.png";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import DriverHomePage from "./DriverHomePage";
 import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
   const nav = useNavigate();
@@ -18,12 +17,14 @@ const Home = () => {
 
   return (
     <>
+    
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
         data-bs-ride="false"
       >
         <div className="carousel-indicators">
+          
           <button
             type="button"
             data-bs-target="#carouselExampleCaptions"

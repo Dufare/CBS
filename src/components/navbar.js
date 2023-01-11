@@ -12,16 +12,17 @@ const Navbar = () => {
 
   return (
     <div>
+      
       <nav className="navbar navbar-expand-lg navbar-dark navbar-main fixed-top">
         <ul className="navbar-nav mx-2">
           <li className="nav-item active mx-2">
-            <Link to="/" className="nav-link">
+            <Link to="/" className="nav-link" >
               <strong> CBS</strong>
             </Link>
           </li>
-
+         
           <li className="nav-item active mx-2">
-            <Link to="/UserHome" className="nav-link">
+            <Link to="/" className="nav-link">
               HOME
             </Link>
           </li>
@@ -61,11 +62,14 @@ const Navbar = () => {
                   ></i>
                 )}
               </a>
+              
             </li>
           </ul>
         </div>
       </nav>
       <LogIn/>
+     
+      
     </div>
   );
 };
