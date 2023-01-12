@@ -1,26 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 const CompletedRides = () => {
- 
-    const [data, setData] = useState([]);
-    //const [ride, setRide] = useState([]);
-    
+  const [data, setData] = useState([]);
+  //const [ride, setRide] = useState([]);
+
   //Get All Rides Request
   const fetchRides = async () => {
     const data = await fetch("   http://localhost:5000/CompletedRides");
     const parsedData = await data.json();
     setData(parsedData);
-    
   };
 
   useEffect(() => {
     fetchRides();
   }, []);
 
-  
   return (
     <div>
-        <div className="conatiner history-cont">
+      <div className="conatiner history-cont">
         <h4>History</h4>
 
         <div class="container my-3 total-grid">
@@ -48,13 +45,11 @@ const CompletedRides = () => {
               <th scope="col">Ride Time</th>
               <th scope="col">Ride Charge</th>
               <th scope="col">Status</th>
-              
             </tr>
           </thead>
 
           <tbody>
             {data.map((post) => (
-               
               <tr>
                 <th scope="row">{post.bookingid}</th>
                 <td>{post.from}</td>
@@ -63,17 +58,14 @@ const CompletedRides = () => {
                 <td> {post.ridedate}</td>
                 <td> {post.ridetime}</td>
                 <td> {post.ride_charge}</td>
-                <td className='status-col'> {post.status}</td>
-               
-                
+                <td className="status-col"> {post.status}</td>
               </tr>
-              ))}
+            ))}
           </tbody>
         </table>
       </div>
-      
     </div>
-  )
-}
+  );
+};
 
-export default CompletedRides
+export default CompletedRides;

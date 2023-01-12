@@ -68,11 +68,17 @@ const RideRequest = () => {
             <div className="modal-body">
               <div class="container">
                 <div class="row">
-                  <div class="col">From :<strong>{details.from}</strong> </div>
-                  <div class="col">To : <strong>{details.to}</strong></div>
+                  <div class="col">
+                    From :<strong>{details.from}</strong>{" "}
+                  </div>
+                  <div class="col">
+                    To : <strong>{details.to}</strong>
+                  </div>
                 </div>
                 <div class="row">
-                  <div class="col">Booking Id : <strong>{details.bookingid}</strong></div>
+                  <div class="col">
+                    Booking Id : <strong>{details.bookingid}</strong>
+                  </div>
                   <div class="col">Booking Date : {details.date_time}</div>
                 </div>
                 <div class="row">
@@ -81,7 +87,9 @@ const RideRequest = () => {
                 </div>
                 <div class="row">
                   <div class="col">Ride Status : {details.status}</div>
-                  <div class="col">Ride Charges: <strong>{details.ride_charge}</strong></div>
+                  <div class="col">
+                    Ride Charges: <strong>{details.ride_charge}</strong>
+                  </div>
                 </div>
               </div>
             </div>

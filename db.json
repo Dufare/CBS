@@ -47,6 +47,14 @@
       "mobile": "7000186254",
       "address": "Gpo Indore",
       "email": "nikhil@gmail.com"
+    },
+    {
+      "id": 7,
+      "userName": "Sayjal Ch",
+      "password": "sayjal@123",
+      "mobile": "68757576464",
+      "address": "Nepanagar",
+      "email": "sayjal@gmail.com"
     }
   ],
   "Drivers": [
@@ -89,6 +97,14 @@
       "mobile": "736346349",
       "address": "csit park",
       "email": "test@gmail.com"
+    },
+    {
+      "id": 6,
+      "userName": "Ritika Maheshwari ",
+      "password": "Ritika@81033",
+      "mobile": "7974581097",
+      "address": "Indore Madhya Pradesh",
+      "email": "Ritika@gmail.com"
     }
   ],
   "RideRequest": [
@@ -247,6 +263,18 @@
       "ride_charge": 70,
       "ridedate": "2023-01-10",
       "ridetime": "04:04"
+    },
+    {
+      "id": 14,
+      "from": "Indore",
+      "to": "Pune",
+      "ride": "Elentra",
+      "date_time": "11/1/2023",
+      "status": "Pending",
+      "bookingid": 117686,
+      "ride_charge": 80,
+      "ridedate": "2023-01-12",
+      "ridetime": "06:20"
     }
   ],
   "CompletedRides": [
@@ -381,6 +409,18 @@
       "ridedate": "2023-01-10",
       "ridetime": "04:04",
       "id": 11
+    },
+    {
+      "from": "Indore",
+      "to": "Pune",
+      "ride": "Elentra",
+      "date_time": "11/1/2023",
+      "status": "Completed",
+      "bookingid": 117686,
+      "ride_charge": 80,
+      "ridedate": "2023-01-12",
+      "ridetime": "06:20",
+      "id": 12
     }
   ]
 }

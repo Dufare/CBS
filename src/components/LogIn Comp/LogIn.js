@@ -1,19 +1,16 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import "./LogIn.css";
 import taxi2 from "../../assets/taxi 2.png";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseconfig/firebase"; //User Auth
 import GoogleButton from "react-google-button";
-import {GoogleAuthProvider,signInWithPopup} from "firebase/auth"
-
-
-
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const LogIn = () => {
   const navigate = useNavigate();
-  //set user name and password in local storage 
+  //set user name and password in local storage
   const [user, setUser] = useState({
     password: "",
     email: "",
@@ -24,64 +21,57 @@ const LogIn = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-
   //Email & Password Authentication
   const handleSubmit = () => {
-   
-    if (!user.email || !user.password )
-    {
+    if (!user.email || !user.password) {
       setErrorMsg("Please fill all detials to LogIn");
       return;
     }
     setErrorMsg("");
     signInWithEmailAndPassword(auth, user.email, user.password)
-  
       .then((res) => {
-        
-        
         localStorage.setItem("email", user.email);
         localStorage.setItem("password", user.password);
 
         navigate("/");
         window.location.reload(false); //page refresh
-       
       })
       .catch((err) => console.log("Error", err));
 
     setUser({
       password: "",
       email: "",
-    })
-    .catch((err) => console.log("Error", err));
-  
-   
+    }).catch((err) => console.log("Error", err));
   };
   const handleDriver = () => {
+    localStorage.setItem("email", user.email);
+    localStorage.setItem("password", user.password);
     navigate("/Home");
-  }
-  // User Google Authentication 
+    window.location.reload(false);
+  };
+  // User Google Authentication
   const provider = new GoogleAuthProvider();
-  const signInWithGoogle=()=>{
-    signInWithPopup(auth,provider).then((result)=>{
-      const name = result.user.displayName;
-      const email = result.user.email;
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const name = result.user.displayName;
+        const email = result.user.email;
 
-      localStorage.setItem("name" , name)
-      localStorage.setItem("email" , email)
-      window.location.reload(false);   //page refresh
-     
-
-
-    }).catch((err) => console.log("Error", err));
-  }
-
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+        window.location.reload(false); //page refresh
+      })
+      .catch((err) => console.log("Error", err));
+  };
 
   return (
     <>
-
-   
       <div
-       class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
       >
         <div class="modal-dialog">
           <div class="modal-content login-model">
@@ -138,29 +128,26 @@ const LogIn = () => {
                                 data-bs-dismiss="modal"
                                 onClick={handleSubmit}
                               >
-                               <i class="bi bi-person"></i>
+                                <i class="bi bi-person"></i>
                               </button>
-                              
+
                               <button
                                 type="button"
                                 className="btn btn-outline-success mx-3"
                                 data-bs-dismiss="modal"
-                                onClick={handleDriver}                                
+                                onClick={handleDriver}
                               >
-                               <i class="bi bi-car-front"></i>
+                                <i class="bi bi-car-front"></i>
                               </button>
-                              
                             </div>
-                           
-                             
-                            
+
                             <div className="mb-1">
                               <Link
                                 to="/Register"
                                 className="cursor-pointer text-green-600 hover:text-green-800"
                               >
                                 <div class="mb-1 my-2 ">
-                                  <a className="newacc" >Create New Account</a>
+                                  <a className="newacc">Create New Account</a>
                                 </div>
                               </Link>
                               <Link
@@ -168,17 +155,16 @@ const LogIn = () => {
                                 className="cursor-pointer text-green-600 hover:text-green-800"
                               >
                                 <div class="mb-1 my-2">
-                                  <a className="newacc"  >Create Driver Account</a>
+                                  <a className="newacc">
+                                    Create Driver Account
+                                  </a>
                                 </div>
                               </Link>
                               <div className="conatiner my-4">
-                                
                                 <GoogleButton
                                   className="rounded"
                                   onClick={signInWithGoogle}
-                                  
                                 />
-                               
                               </div>
                             </div>
                           </div>
@@ -192,7 +178,6 @@ const LogIn = () => {
           </div>
         </div>
       </div>
-     
     </>
   );
 };

@@ -4,7 +4,7 @@ import "./AdminHome.css";
 const DriverMng = () => {
   const [getAllUser, setAllUser] = useState([]);
 
- // GET ALL USERS FOR TABEL
+  // GET ALL USERS FOR TABEL
   const fetchUsers = async () => {
     const users = await fetch("http://localhost:5000/Drivers");
     const parsedData = await users.json();
@@ -14,7 +14,7 @@ const DriverMng = () => {
     fetchUsers();
   }, []);
 
- // DELETE SINGLE USER IN TABLE
+  // DELETE SINGLE USER IN TABLE
   const deleteUser = async (id) => {
     fetch(`http://localhost:5000/Drivers/${id}`, {
       method: "DELETE",

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./DriverHome.css";
 import { Link, useNavigate } from "react-router-dom";
-import {signInWithEmailAndPassword} from "firebase/auth"
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseconfig/firebase"; //User Auth
 import GoogleButton from "react-google-button";
 //import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
@@ -36,7 +36,7 @@ const DriverLogIn = () => {
     signInWithEmailAndPassword(auth, user.email, user.password)
       .then((res) => {
         debugger;
-        
+
         localStorage.setItem("email", user.email);
         localStorage.setItem("password", user.password);
 
@@ -52,19 +52,19 @@ const DriverLogIn = () => {
   };
 
   // User Google Authentication
-//   const provider = new GoogleAuthProvider();
-//   const signInWithGoogle = () => {
-//     signInWithPopup(auth, provider)
-//       .then((result) => {
-//         const name = result.user.displayName;
-//         const email = result.user.email;
+  //   const provider = new GoogleAuthProvider();
+  //   const signInWithGoogle = () => {
+  //     signInWithPopup(auth, provider)
+  //       .then((result) => {
+  //         const name = result.user.displayName;
+  //         const email = result.user.email;
 
-//         localStorage.setItem("name", name);
-//         localStorage.setItem("email", email);
-//         window.location.reload(false); //page refresh
-//       })
-//       .catch((err) => console.log("Error", err));
-//   };
+  //         localStorage.setItem("name", name);
+  //         localStorage.setItem("email", email);
+  //         window.location.reload(false); //page refresh
+  //       })
+  //       .catch((err) => console.log("Error", err));
+  //   };
 
   return (
     <>

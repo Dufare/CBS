@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./UserPayment.css";
 
 const UserPayment = () => {
+  const navigate = useNavigate();
   const [dataaa, setData] = useState([]);
   const data = useSelector((state) => state.rootReducer.userReducer.ride_req);
 
@@ -13,32 +15,42 @@ const UserPayment = () => {
   };
   driverById(2);
 
+  const handlecard = () => {
+    navigate("/Cradpayment");
+  };
+
   return (
     <>
+      <button
+        type="button"
+        className="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Launch demo modal
+      </button>
 
-
-<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-
-<div className="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-    <div className="container success">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
-                    alt="image car"/>
-                     <div class="modal-footer">
-    <p>Successfully Booked Your Ride....!</p>
+      <div
+        className="modal fade"
+        id="exampleModall"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="container success">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
+                alt="image car"
+              />
+              <div class="modal-footer">
+                <p>Successfully Booked Your Ride....!</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-                </div>
-    </div>
-    
-   
-  </div>
-</div>
-
 
       <div className="container main-div-u my-5">
         <div className="container main_ucont">
@@ -48,10 +60,9 @@ const UserPayment = () => {
                 <div className="col-12 p-5">
                   <img
                     src="https://www.pngmart.com/files/22/Hyundai-Verna-Download-PNG-Image.png"
-                    alt="image car"/>
+                    alt="image car"
+                  />
                 </div>
-                
-
 
                 <div className="row m-0 bg-light card-details">
                   <div className="col-md-4 col-6 ps-30 pe-0 my-4">
@@ -145,7 +156,7 @@ const UserPayment = () => {
                         className="btn btn-primaryy"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"
-                        onClick={""}
+                        onClick={handlecard}
                       >
                         Card Pay
                         <span className="fas fa-arrow-right ps-2"></span>
@@ -158,7 +169,11 @@ const UserPayment = () => {
                       </div>
                     </div>
                     <div className="col-12  mb-4 p-0 my-2">
-                      <div className="btn btn-prime" data-bs-toggle="modal" data-bs-target="#exampleModall">
+                      <div
+                        className="btn btn-prime"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModall"
+                      >
                         Cash
                         <span className="bi bi-cash ps-2"></span>
                       </div>

@@ -10,6 +10,7 @@ import DriverRegister from "./Driver Components/DriverRegister";
 import Home from "./Driver Components/Home";
 import UserPayment from "./components/UserPayment";
 import CompletedRides from "./Driver Components/CompletedRides";
+import Cradpayment from "./components/Cradpayment";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         ></Route>
         <Route exact path="/UserPayment" element={<UserPayment />}></Route>
         <Route exact path="/CompletedRide" element={<CompletedRides />}></Route>
+        <Route exact path="/Cradpayment" element={<Cradpayment />}></Route>
       </Routes>
     </>
   );
